@@ -1,4 +1,4 @@
-package com.bgb.logger.model;
+package com.bgb.logger.model.pojo;
 
 import java.io.Serializable;
 
@@ -10,17 +10,17 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class BaseModel implements Serializable
 {
-	private Long id;
+	private String id;
 	private String createTime;
 	private String createBy;
 	private String updateTime;
 	private String updateBy;
 	
-	public Long getId()
+	public String getId()
 	{
 		return id;
 	}
-	public void setId(Long id)
+	public void setId(String id)
 	{
 		this.id = id;
 	}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:命名空间，其值为对应Dao的具体路径 -->
+<mapper namespace="com.bgb.logger.model.dao.UserDaoImpl">
+	<!-- sql语句保存在mybatis的局部配置文件中 -->
+	<select id="getAllUser" resultType="com.bgb.logger.model.pojo.User">
+		select * from user
+	</select>
+</mapper>

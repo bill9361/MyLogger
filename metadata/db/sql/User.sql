@@ -1,0 +1,1 @@
+INSERT INTO `my_logger`.`user` (`id`, `username`, `password`, `fullname`, `idNumber`, `dateOfBirth`, `companyOrgId`) VALUES ('4b3daafd-8e6b-4ca9-bed1-6828e66a6d5b', 'wxm', '888888', '王小明', '1234567890', '2001-01-09', '7d23991f-fe0b-4e7f-9fb2-4769870f90eb');

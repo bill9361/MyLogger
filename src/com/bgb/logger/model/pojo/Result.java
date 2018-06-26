@@ -1,4 +1,4 @@
-package com.bgb.logger.model;
+package com.bgb.logger.model.pojo;
 
 import com.google.gson.GsonBuilder;
 

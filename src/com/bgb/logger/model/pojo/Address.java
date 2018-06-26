@@ -1,4 +1,4 @@
-package com.bgb.logger.model;
+package com.bgb.logger.model.pojo;
 
 public class Address {
 	private String city;

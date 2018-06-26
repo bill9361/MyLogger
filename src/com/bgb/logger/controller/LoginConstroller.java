@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bgb.logger.model.Result;
-import com.bgb.logger.model.User;
+import com.bgb.logger.model.pojo.Result;
+import com.bgb.logger.model.pojo.User;
 
 @RequestMapping("/login")
 @Controller
