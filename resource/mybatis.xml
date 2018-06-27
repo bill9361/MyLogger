@@ -3,21 +3,35 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+	<settings>
+		<!-- 设置log4j打印查询语句 -->
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+
 	<!-- 配置数据库连接环境：driver,url,username,password -->
 	<environments default="mysql">
 		<!-- 开始配置MySQL -->
 		<environment id="mysql">
-			<!-- 配置事物 -->
+			<!-- 配置事务 -->
 			<transactionManager type="JDBC"></transactionManager>
 			<!-- 配置数据源 -->
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="com.mysql.jdbc.Driver"/>
-				<property name="username" value="jdbc:mysql:///my_logger"/>
-				<property name="password" value="root"/>
-				<property name="driver" value="root"/>
-				<!-- <property name="driver" value="bgbtech123456"/> -->
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<!-- mysql8.0以下 -->
+				<!-- <property name="url" value="jdbc:mysql://localhost:3306/my_logger"/> -->
+				<!-- mysql8.0或以上 -->
+				<property name="url" value="jdbc:mysql://localhost:3306/my_logger?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"/>
+				<property name="username" value="root"/>
+				<!-- <property name="password" value="root"/> -->
+				<property name="password" value="bgbtech123456"/>
 			</dataSource>
 		</environment>
 	</environments>
+	
+	<!-- 关联局部配置文件 -->
+	<mappers>
+		<mapper resource="com/bgb/logger/model/dao/UserDaoImpl.xml"/>
+	</mappers>
+	
 </configuration>

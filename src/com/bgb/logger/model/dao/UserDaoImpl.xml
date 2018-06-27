@@ -5,7 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace:命名空间，其值为对应Dao的具体路径 -->
 <mapper namespace="com.bgb.logger.model.dao.UserDaoImpl">
 	<!-- sql语句保存在mybatis的局部配置文件中 -->
+	<!-- 获取所有用户，并返回List<User> -->
 	<select id="getAllUser" resultType="com.bgb.logger.model.pojo.User">
+		select * from user
+	</select>
+	<!-- 获取所有用户，并返回List<Map<String,Object>> -->
+	<select id="getAllUser2" resultType="Map">
 		select * from user
 	</select>
 </mapper>

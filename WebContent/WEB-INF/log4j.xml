@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	threshold="info" debug="true">
+	<!-- 控制台 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="threshold" value="info" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" />
+		</layout>
+	</appender>
+
+
+
+	<!-- 每天的日志 -->
+	<!-- <appender name="DAILY" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/daily/daily.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> -->
+
+
+	<!-- 每天的日志 -->
+	<!-- <appender name="INFO" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/info/info.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> -->
+
+	<!-- 每天的日志 -->
+	<!-- <appender name="ERROR" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="debug" /> <param name="file" value="${v7.root}/WEB-INF/logs/error/error.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> -->
+
+
+
+
+
+	<!-- 每天的日志 -->
+	<!-- <appender name="FATAL" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="fatal" /> <param name="file" value="${v7.root}/WEB-INF/logs/fatal/fatal.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> -->
+
+
+	<!-- 发邮件（只有ERROR时才会发送！） -->
+	<!-- <appender name="MAIL" class="org.apache.log4j.net.SMTPAppender"> 日志的错误级别 
+		<param name="threshold" value="fatal"/> 缓存文件大小，日志达到512K时发送Email <param name="BufferSize" 
+		value="512" />单位K <param name="From" value="jfli@bgb.com.cn" /> <param name="SMTPUsername" 
+		value="jfli@bgb.com.cn" /> <param name="SMTPPassword" value="bgb@789456" 
+		/> <param name="SMTPHost" value="webmail.bgb.com.cn" /> <param name="SMTPPort" 
+		value="465" /> <param name="Subject" value="DBIS-SmartPro errors" /> <param 
+		name="To" value="2832320830@qq.com,13825186931@qq.com" /> <param name="SMTPDebug" 
+		value="false" /> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> <filter 
+		class="org.apache.log4j.varia.LevelRangeFilter"> <param name="LevelMin" value="error" 
+		/> <param name="LevelMax" value="fatal" /> </filter> </appender> -->
+
+
+
+
+
+	<!-- <appender name="ApkExchange" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-apk/apk.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> 
+		<appender name="LocaleExchange" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-locale/locale.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> 
+		<appender name="FileExchange" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-file/file.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> 
+		<appender name="DataExchange" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-data/data.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> 
+		<appender name="DataExchange-Error" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="error" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-data-error/error.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> 
+		<appender name="DataExchange-Controller" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-data-controller/data-controller.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> 
+		<appender name="DataExchange-Service" class="org.apache.log4j.DailyRollingFileAppender"> 
+		<param name="threshold" value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-data-service/data-service.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> 
+		<category name="com.bgb.core.web.listener.EmailForReportListener" additivity="true"> 
+		<appender-ref ref="EmailForReportListener" /> </category> <appender name="EmailForReportListener" 
+		class="org.apache.log4j.DailyRollingFileAppender"> <param name="threshold" 
+		value="info" /> <param name="file" value="${v7.root}/WEB-INF/logs/exchange-data-service/data-service.txt" 
+		/> <param name="append" value="true" /> <param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.txt'" 
+		/> <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+		value="[%-5p][%d{yyyy-MM-dd HH:mm:ss,SSS}][%c.%M] %t:%m%n" /> </layout> </appender> -->
+
+
+
+
+
+
+
+
+	<root>
+
+		<!-- <level value="trace" /> <level value="debug" /> <level value="info" 
+			/> <level value="warn" /> <level value="error" /> <level value="fatal" /> 
+			<logger name="com.atomikos" additivity="true"> <level value="WARN" /> </logger> -->
+
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="DAILY" />
+		<appender-ref ref="ERROR" />
+		<appender-ref ref="FATAL" />
+		<appender-ref ref="INFO" />
+	</root>
+</log4j:configuration>

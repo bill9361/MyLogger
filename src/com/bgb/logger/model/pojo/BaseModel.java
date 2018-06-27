@@ -56,5 +56,13 @@ public class BaseModel implements Serializable
 	{
 		this.updateBy = updateBy;
 	}
+	@Override
+	public String toString()
+	{
+		return "BaseModel [id=" + id + ", createTime=" + createTime + ", createBy=" + createBy + ", updateTime="
+				+ updateTime + ", updateBy=" + updateBy + "]";
+	}
+	
+	
 
 }
