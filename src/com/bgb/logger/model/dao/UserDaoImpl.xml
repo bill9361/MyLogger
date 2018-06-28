@@ -25,4 +25,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from user where username='${username}' and password='${password}';
 	</select>
 	
+	
+	<!-- 模糊查找，并返回List<Map<String,Object>> -->
+	<select id="queryUserByLike" parameterType="Map" resultType="Map">
+		select * from user where username like'%${username}%';
+	</select>
+	
+	<!-- 模糊查找，使用#代替$，防止SQL注入 -->
+	<select id="queryUserByLike2" parameterType="Map" resultType="Map">
+		select * from user where username like concat('%',#{username},'%');
+	</select>
+	
+	
 </mapper>

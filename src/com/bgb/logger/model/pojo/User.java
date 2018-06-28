@@ -1,21 +1,20 @@
 package com.bgb.logger.model.pojo;
 
-import java.io.Serializable;
 
 /**
  * @author Bill
  *
  */
 @SuppressWarnings("serial")
-public class User extends BaseModel implements Serializable 
+public class User extends BaseModel
 {
     private String username;		//登录名
     private String password;		//密码
     private String fullname;		//姓名
     private String idNumber;		//身份证号
     private String dateOfBirth;		//出生日期
-    private int isLock;				//是否锁定
-    private int workingStatus;		//在职状态
+    private Integer isLock;				//是否锁定
+    private Integer workingStatus;		//在职状态
     private String picture;			//头像
     private String validityStartDate;	//有效期开始日期
     private String validityEndDate;		//有效期结束日期
@@ -57,13 +56,13 @@ public class User extends BaseModel implements Serializable
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public int getIsLock() {
+	public Integer getIsLock() {
 		return isLock;
 	}
 	public void setIsLock(int isLock) {
 		this.isLock = isLock;
 	}
-	public int getWorkingStatus() {
+	public Integer getWorkingStatus() {
 		return workingStatus;
 	}
 	public void setWorkingStatus(int workingStatus) {

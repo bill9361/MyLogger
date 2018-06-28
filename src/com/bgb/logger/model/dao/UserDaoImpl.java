@@ -80,7 +80,32 @@ public class UserDaoImpl
 		Map<String, Object> params= new HashMap<>();
 		params.put("username", "1001");
 		params.put("password", "123456");
-		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryUserByCondition2",params);
+		Map<String,Object> userMap = sqlSession.selectOne("com.bgb.logger.model.dao.UserDaoImpl.queryUserByCondition2",params);
+		
+		System.out.println(userMap);
+	}
+
+	
+	@Test
+	public void queryUserByLike() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		params.put("username", "10");
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryUserByLike",params);
+		
+		for (Map<String, Object> map : userListMap)
+		{
+			System.out.println(map);
+		}
+	}
+	
+
+	@Test
+	public void queryUserByLike2() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		params.put("username", "10");
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryUserByLike2",params);
 		
 		for (Map<String, Object> map : userListMap)
 		{
