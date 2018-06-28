@@ -1,6 +1,7 @@
 package com.bgb.logger.model.dao;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class UserDaoImpl
 		//Sqlsession-->SqlSessionFactory-->SqlSessionFactoryBuilder
 		SqlSessionFactoryBuilder sfb = new SqlSessionFactoryBuilder();
 		//将mybatis.xml文件转化成流
-		InputStream ins = Resources.getResourceAsStream("mybatis.xml");
+		InputStream ins = Resources.getResourceAsStream("configuration/mybatis.xml");
 		SqlSessionFactory ssf = sfb.build(ins);
 		sqlSession = ssf.openSession();
 	}
@@ -56,6 +57,35 @@ public class UserDaoImpl
 			System.out.println(map);
 		}
 	}
+	
 
+	@Test
+	public void queryUserByCondition() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		params.put("username", "1001");
+		params.put("password", "123456");
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryUserByCondition",params);
+		
+		for (Map<String, Object> map : userListMap)
+		{
+			System.out.println(map);
+		}
+	}
+
+	
+	@Test
+	public void queryUserByCondition2() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		params.put("username", "1001");
+		params.put("password", "123456");
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryUserByCondition2",params);
+		
+		for (Map<String, Object> map : userListMap)
+		{
+			System.out.println(map);
+		}
+	}
 	
 }

@@ -35,13 +35,13 @@
     
     
 	<!--Log4j日志监听器-->
-	<context-param>
+	<!-- <context-param>
 		<param-name>log4jConfigLocation</param-name>
-		<param-value>/WEB-INF/log4j.xml</param-value>
+		<param-value>classpath:configuration/log4j.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-	</listener>
+	</listener> -->
 	
     
     <!-- 配置spring核心servlet -->  
@@ -51,7 +51,7 @@
         <init-param>  
         <param-name>contextConfigLocation</param-name>  
         <!-- 应用上下文配置文件 -->  
-        <param-value>/WEB-INF/spring-servlet.xml</param-value>  
+        <param-value>classpath:configuration/spring-servlet.xml</param-value>  
     </init-param>  
         <load-on-startup>1</load-on-startup>  
     </servlet>  
