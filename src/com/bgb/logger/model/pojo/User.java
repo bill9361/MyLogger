@@ -13,8 +13,8 @@ public class User extends BaseModel
     private String fullname;		//姓名
     private String idNumber;		//身份证号
     private String dateOfBirth;		//出生日期
-    private Integer isLock;				//是否锁定
-    private Integer workingStatus;		//在职状态
+    private Integer isLock;			//是否锁定
+    private Integer workingStatus;	//在职状态
     private String picture;			//头像
     private String validityStartDate;	//有效期开始日期
     private String validityEndDate;		//有效期结束日期
@@ -26,6 +26,9 @@ public class User extends BaseModel
     private String wechat;
     private String roleId;
     private String userGroupId;
+    
+    
+    
 	public String getUsername() {
 		return username;
 	}

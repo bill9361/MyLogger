@@ -84,6 +84,19 @@ public class UserDaoImpl
 		
 		System.out.println(userMap);
 	}
+	
+
+	@Test
+	public void queryUserByCondition3() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		params.put("username", "1001");
+		params.put("password", "123456");
+		params.put("isLock", 1);
+		Map<String,Object> userMap = sqlSession.selectOne("com.bgb.logger.model.dao.UserDaoImpl.queryUserByCondition3",params);
+		
+		System.out.println(userMap);
+	}
 
 	
 	@Test
@@ -112,5 +125,107 @@ public class UserDaoImpl
 			System.out.println(map);
 		}
 	}
+	
+
+	@Test
+	public void queryDynamic1() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		/*params.put("username", "10");
+		params.put("password", "123456");
+		params.put("fullname", "张");*/
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryDynamic1",params);
+		
+		for (Map<String, Object> map : userListMap)
+		{
+			System.out.println(map);
+		}
+	}
+	
+
+	@Test
+	public void queryDynamic2() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		/*params.put("username", "10");*/
+		params.put("password", "123456");
+		params.put("fullname", "张");
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryDynamic2",params);
+		
+		for (Map<String, Object> map : userListMap)
+		{
+			System.out.println(map);
+		}
+	}
+	
+	
+	@Test
+	public void queryDynamic3() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		/*params.put("username", "10");
+		params.put("password", "123456");
+		params.put("fullname", "张");*/
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryDynamic3",params);
+		
+		for (Map<String, Object> map : userListMap)
+		{
+			System.out.println(map);
+		}
+	}
+
+	@Test
+	public void queryUserByChoose() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		params.put("type", 3);
+		params.put("username", "10");
+		List<Map<String,Object>> userListMap = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.queryUserByChoose",params);
+		
+		for (Map<String, Object> map : userListMap)
+		{
+			System.out.println(map);
+		}
+	}
+	
+	@Test
+	public void updateUserById() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		//params.put("id", "000000000000000000000000000000000000");
+		//params.put("password", "333444");
+		//params.put("fullname", "666666");
+		int flag = sqlSession.update("com.bgb.logger.model.dao.UserDaoImpl.updateUserById", params);
+		sqlSession.commit();
+		System.out.println(flag);
+	}
+	
+
+	@Test
+	public void updateUserByUNP() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		/*params.put("username", "root");
+		params.put("password", "333444");
+		params.put("email", "991724847@qq.com");*/
+		int flag = sqlSession.update("com.bgb.logger.model.dao.UserDaoImpl.updateUserByUNP", params);
+		sqlSession.commit();
+		System.out.println(flag);
+	}
+	
+
+	@Test
+	public void one2one() throws Exception
+	{
+		Map<String, Object> params= new HashMap<>();
+		params.put("id", "4b3daafd-8e6b-4ca9-bed1-6828e66a6d5b");
+		List<User> userList = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.one2one",params);
+		
+		for (User user : userList)
+		{
+			System.out.println(user);
+		}
+	}
+	
 	
 }

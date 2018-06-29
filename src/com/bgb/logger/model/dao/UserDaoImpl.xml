@@ -4,6 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace:命名空间，其值为对应Dao的具体路径 -->
 <mapper namespace="com.bgb.logger.model.dao.UserDaoImpl">
+
+	<sql id="common1">
+		is_lock=#{isLock}
+	</sql>
 	<!-- sql语句保存在mybatis的局部配置文件中 -->
 	<!-- 获取所有用户，并返回List<User> -->
 	<select id="getAllUser" resultType="com.bgb.logger.model.pojo.User">
@@ -26,6 +30,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<!-- 根据条件查询用户3，并返回List<Map<String,Object>> -->
+	<select id="queryUserByCondition3" parameterType="Map" resultType="Map">
+		select * from user where username=#{username} and password=#{password} and <include refid="common1"/>;
+	</select>
+	
+	
 	<!-- 模糊查找，并返回List<Map<String,Object>> -->
 	<select id="queryUserByLike" parameterType="Map" resultType="Map">
 		select * from user where username like'%${username}%';
@@ -34,6 +44,117 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 模糊查找，使用#代替$，防止SQL注入 -->
 	<select id="queryUserByLike2" parameterType="Map" resultType="Map">
 		select * from user where username like concat('%',#{username},'%');
+	</select>
+	
+	<!-- 动态查询 -->
+	<select id="queryDynamic1" parameterType="Map" resultType="Map">
+		SELECT * FROM user where 1=1
+		<if test="username != null">
+			and username like concat('%',#{username},'%')
+		</if>
+		<if test="password != null">
+			and password=#{password}
+		</if>
+		<if test="fullname != null">
+			and fullname like concat('%',#{fullname},'%')
+		</if>
+			order by date_of_birth desc
+	</select>
+	
+	<!-- 动态查询Ongl -->
+	<select id="queryDynamic2" parameterType="Map" resultType="Map">
+		SELECT * FROM user where 1=1
+		<if test="@Ognl@isNotEmpty(username)">
+			and username like concat('%',#{username},'%')
+		</if>
+		<if test="@Ognl@isNotEmpty(password)">
+			and password=#{password}
+		</if>
+		<if test="@Ognl@isNotEmpty(fullname)">
+			and fullname like concat('%',#{fullname},'%')
+		</if>
+			order by date_of_birth desc
+	</select>
+	
+	<!-- 动态查询3 -->
+	<select id="queryDynamic3" parameterType="Map" resultType="Map">
+		SELECT * FROM user
+		<where>
+			<if test="@Ognl@isNotEmpty(username)">
+				and username like concat('%',#{username},'%')
+			</if>
+			<if test="@Ognl@isNotEmpty(password)">
+				and password=#{password}
+			</if>
+			<if test="@Ognl@isNotEmpty(fullname)">
+				and fullname like concat('%',#{fullname},'%')
+			</if>
+		</where>
+		order by date_of_birth desc
+	</select>
+	
+	
+	
+	<!-- choose -->
+	<select id="queryUserByChoose" parameterType="Map" resultType="Map">
+		<choose>
+			<when test="type==1">SELECT * FROM user</when>
+			<when test="type==2">
+				SELECT * FROM user
+				<where>
+					<if test="@Ognl@isNotEmpty(username)">
+						and username like concat('%',#{username},'%')
+					</if>
+				</where>
+			</when>
+			<otherwise>
+				SELECT * FROM user where username='root'
+			</otherwise>
+		</choose>
+		
+	</select>
+	
+	<!-- 根据Id更新用户信息，set标签能够去除SQL中多余的逗号 -->
+	<update id="updateUserById" parameterType="Map">
+		update user
+		<set>
+			<if test="@Ognl@isNotEmpty(password)">
+				password=#{password},
+			</if>
+			<if test="@Ognl@isNotEmpty(fullname)">
+				fullname=#{fullname},
+			</if>
+			id=#{id}
+		</set>
+		where id=#{id}
+	</update>
+	
+	
+	
+	<!-- 根据用户名和密码更新用户信息，set标签能够去除SQL中多余的逗号 -->
+	<update id="updateUserByUNP" parameterType="Map">
+		update user
+		<set>
+			<if test="@Ognl@isNotEmpty(password)">
+				password=#{password},
+			</if>
+			<if test="@Ognl@isNotEmpty(fullname)">
+				fullname=#{fullname},
+			</if>
+			<if test="@Ognl@isNotEmpty(email)">
+				email=#{email},
+			</if>
+			username=#{username}
+		</set>
+		where username=#{username} and password=#{password}
+	</update>
+	
+	
+	<!-- 一对一关联 -->
+	<select id="one2one" parameterType="Map" resultType="com.bgb.logger.model.pojo.User">
+		SELECT company_organization.*,user.* FROM user
+			inner join company_organization on (user.company_org_id=company_organization.id)
+			where user.id=#{id};
 	</select>
 	
 	

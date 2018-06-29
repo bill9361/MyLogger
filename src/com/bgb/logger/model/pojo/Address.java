@@ -1,18 +1,18 @@
 package com.bgb.logger.model.pojo;
 
+/**
+ * 地址
+ * @author Bill
+ *
+ */
 @SuppressWarnings("serial")
 public class Address extends BaseModel {
-	private String id;		//名称
 	private String type;	//类型
+	private String name;	//名称
 	private Integer leaf;	//是否叶子
 	private String parentId;//父ID	
 	private String path;	//路径
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public String getType() {
 		return type;
 	}
@@ -37,10 +37,20 @@ public class Address extends BaseModel {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	public void setName(String name)
+	{
+		this.name = name;
+	}
 	@Override
-	public String toString() {
-		return "Address [id=" + id + ", type=" + type + ", leaf=" + leaf + ", parentId=" + parentId + ", path=" + path
-				+ ", toString()=" + super.toString() + "]";
+	public String toString()
+	{
+		return "Address [type=" + type + ", name=" + name + ", leaf=" + leaf + ", parentId=" + parentId + ", path="
+				+ path + ", toString()=" + super.toString() + "]";
 	}
 	
 }
