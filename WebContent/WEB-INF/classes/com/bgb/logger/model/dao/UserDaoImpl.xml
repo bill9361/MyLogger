@@ -5,6 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace:命名空间，其值为对应Dao的具体路径 -->
 <mapper namespace="com.bgb.logger.model.dao.UserDaoImpl">
 
+	<resultMap type="" id=""></resultMap>
+
 	<sql id="common1">
 		is_lock=#{isLock}
 	</sql>
