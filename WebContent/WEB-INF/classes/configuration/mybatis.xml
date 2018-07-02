@@ -32,6 +32,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="com/bgb/logger/model/dao/UserDaoImpl.xml"/>
 		<mapper resource="com/bgb/logger/model/dao/AddressDaoImpl.xml"/>
+		<mapper resource="com/bgb/logger/model/dao/DeptDaoImpl.xml"/>
 	</mappers>
 	
 </configuration>

@@ -5,7 +5,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace:命名空间，其值为对应Dao的具体路径 -->
 <mapper namespace="com.bgb.logger.model.dao.UserDaoImpl">
 
-	<resultMap type="" id=""></resultMap>
+	<resultMap type="com.bgb.logger.model.pojo.User" id="User">
+		<!-- 
+			property：代表实体类的属性名
+			javaType:代表实体类中属性名的类型
+			column：数据库中查询语句的字段名
+			jdbcType：数据库中查询语句的字段名的类型（可不填）
+		 -->
+		<result property="username" javaType="String" column="username"/>
+		<result property="password" javaType="String" column="password"/>
+		<result property="fullname" javaType="String" column="fullname"/>
+		<result property="idNumber" javaType="String" column="id_number"/>
+		<result property="dateOfBirth" javaType="String" column="date_of_birth"/>
+		<result property="isLock" javaType="Integer" column="is_lock"/>
+		<result property="workingStatus" javaType="Integer" column="working_status"/>
+		<result property="validityStartDate" javaType="String" column="validity_start_date"/>
+		<result property="validityEndDate" javaType="String" column="validity_end_date"/>
+		<result property="companyId" javaType="String" column="company_id"/>
+		<result property="postId" javaType="String" column="post_id"/>
+		<result property="tel" javaType="String" column="tel"/>
+		<result property="email" javaType="String" column="email"/>
+		<result property="qq" javaType="String" column="qq"/>
+		<result property="wechat" javaType="String" column="wechat"/>
+		<result property="roleId" javaType="String" column="role_id"/>
+		<result property="userGroupId" javaType="String" column="user_group_id"/>
+		<result property="id" javaType="String" column="id"/>
+		<result property="createTime" javaType="String" column="create_time"/>
+		<result property="createBy" javaType="String" column="create_by"/>
+		<result property="updateTime" javaType="String" column="update_time"/>
+		<result property="updateBy" javaType="String" column="update_by"/>
+		
+		<!-- 对象 -->
+		<association property="company" javaType="com.bgb.logger.model.pojo.Company">
+			<result property="id" javaType="String" column="coId"/>
+			<result property="type" javaType="String" column="coType"/>
+			<result property="name" javaType="String" column="coName"/>
+			<result property="companyRootId" javaType="String" column="coCompanyRootId"/>
+			<result property="addressId" javaType="String" column="coAddressId"/>
+			<result property="addressDetail" javaType="String" column="coAddressDetail"/>
+			<result property="leaf" javaType="Integer" column="coLeaf"/>
+			<result property="parentId" javaType="String" column="coParentId"/>
+			<result property="path" javaType="String" column="coPath"/>
+		</association>
+	</resultMap>
 
 	<sql id="common1">
 		is_lock=#{isLock}
@@ -21,6 +63,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 根据条件查询用户，并返回List<Map<String,Object>> -->
+	<!-- 
+		&lt;小于
+		&gt;大于
+	 -->
 	<select id="queryUserByCondition" parameterType="Map" resultType="Map">
 		select * from user where username=#{username} and password=#{password};
 	</select>
@@ -151,12 +197,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where username=#{username} and password=#{password}
 	</update>
 	
-	
-	<!-- 一对一关联 -->
-	<select id="one2one" parameterType="Map" resultType="com.bgb.logger.model.pojo.User">
-		SELECT company_organization.*,user.* FROM user
-			inner join company_organization on (user.company_org_id=company_organization.id)
-			where user.id=#{id};
+	<!-- 
+		一对一关联 
+		如果关联上面的resultMap标签id，这里返回值类型就不能使用resultType,而是使用resultMap
+	-->
+	<!-- where user.id=#{id}; -->
+	<select id="one2one" resultMap="User">
+		SELECT 
+		company.id as coId,company.type as coType,company.name as coName,company.company_root_id as coCompanyRootId,
+		company.address_id as coAddressId,company.address_detail as coAddressDetail,
+		company.leaf as coLeaf,company.parent_id as coParentId,company.path as coPath,
+		user.* FROM user
+			inner join company on (user.company_id=company.id)
 	</select>
 	
 	

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:命名空间，其值为对应Dao的具体路径 -->
+<mapper namespace="com.bgb.logger.model.dao.DeptDaoImpl">
+	
+	<resultMap type="com.bgb.logger.model.pojo.Dept" id="Dept">
+		<result property="name" javaType="String" column="name"/>
+		<result property="companyRootId" javaType="String" column="company_root_id"/>
+		<result property="leaf" javaType="Integer" column="leaf"/>
+		<result property="parentId" javaType="String" column="parent_id"/>
+		<result property="path" javaType="String" column="path"/>
+		<result property="createTime" javaType="String" column="create_time"/>
+		<result property="createBy" javaType="String" column="create_by"/>
+		<result property="updateTime" javaType="String" column="update_time"/>
+		<result property="updateBy" javaType="String" column="update_by"/>
+		 
+		 <!-- 集合使用collection，类型使用ofType -->
+		<collection property="postList" ofType="com.bgb.logger.model.pojo.Post">
+			<result property="name" javaType="String" column="pName"/>
+			<result property="deptId" javaType="String" column="pDeptId"/>
+			<result property="leaf" javaType="Integer" column="pLeaf"/>
+			<result property="parentId" javaType="String" column="pParentId"/>
+			<result property="path" javaType="String" column="pPath"/>
+			<result property="id" javaType="String" column="pId"/>
+		</collection>
+		
+	</resultMap>
+
+	
+	<select id="one2Many" resultMap="Dept">
+		select dept.*,
+		post.id as pId,post.name as pName,post.dept_id as pDeptId,post.leaf as pLeaf,post.parent_id as pParentId,post.path as pPath 
+		from dept inner join post on (dept.id=post.dept_id);
+	</select>
+	
+	
+</mapper>

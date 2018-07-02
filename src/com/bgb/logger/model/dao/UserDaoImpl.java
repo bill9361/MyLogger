@@ -15,9 +15,9 @@ import org.junit.Test;
 import com.bgb.logger.model.pojo.User;
 
 /**
- * 用户Dao实现类
- * @author fengm
- *
+ * 作者Email:fengminbiao@126.com
+ * 创建时间：2018年7月2日下午2:48:14
+ * 类说明：用户Dao实现类
  */
 public class UserDaoImpl 
 {
@@ -217,6 +217,7 @@ public class UserDaoImpl
 	@Test
 	public void one2one() throws Exception
 	{
+		
 		Map<String, Object> params= new HashMap<>();
 		params.put("id", "4b3daafd-8e6b-4ca9-bed1-6828e66a6d5b");
 		List<User> userList = sqlSession.selectList("com.bgb.logger.model.dao.UserDaoImpl.one2one",params);
@@ -225,6 +226,7 @@ public class UserDaoImpl
 		{
 			System.out.println(user);
 		}
+		
 	}
 	
 	

@@ -1,0 +1,2 @@
+INSERT INTO `my_logger`.`dept` (`id`, `name`, `company_root_id`, `leaf`, `path`) VALUES ('6f80d3b7-335f-4552-88d2-dfc9463c7b10', '销售部', '7d23991f-fe0b-4e7f-9fb2-4769870f90eb', '0', '0.6f80d3b7-335f-4552-88d2-dfc9463c7b10.');
+INSERT INTO `my_logger`.`dept` (`id`, `name`, `company_root_id`, `leaf`, `path`) VALUES ('33fa5064-87aa-4277-9064-13534f01e2d3', '技术部', '7d23991f-fe0b-4e7f-9fb2-4769870f90eb', '0', '0.33fa5064-87aa-4277-9064-13534f01e2d3.');

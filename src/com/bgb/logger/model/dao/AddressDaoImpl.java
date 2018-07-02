@@ -47,4 +47,22 @@ public class AddressDaoImpl
 		sqlSession.commit();
 		System.out.println("flag:"+flag);
 	}
+	
+
+	@Test
+	public void addAddressBackId() throws Exception
+	{
+		Map<String, Object> params = new HashMap<>();
+		params.put("id", "fec59db5-6403-4f5f-b87f-2075b6ebc2ae");
+		params.put("name", "黄埔区");
+		params.put("type", "county");
+		params.put("leaf", 1);
+		params.put("parent_id", "89379c17-8382-494d-8db1-ee0f3558db5b");
+		params.put("path", "0.5a4b3d60-8d9e-4a3d-ad6b-aa70e6507ba9.9e207ec5-8d4d-4f2e-905a-890389d8daf8.89379c17-8382-494d-8db1-ee0f3558db5b.fec59db5-6403-4f5f-b87f-2075b6ebc2ae.");
+		int flag = sqlSession.insert("com.bgb.logger.model.dao.AddressDaoImpl.addAddressBackId", params);
+		//提交事务
+		sqlSession.commit();
+		System.out.println("flag:"+flag);
+		System.out.println("id:"+params.get("id"));
+	}
 }

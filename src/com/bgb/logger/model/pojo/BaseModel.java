@@ -3,9 +3,9 @@ package com.bgb.logger.model.pojo;
 import java.io.Serializable;
 
 /**
- * 
- * @author Bill
- *
+ * 作者Email:fengminbiao@126.com
+ * 创建时间：2018年7月2日下午2:46:00
+ * 类说明：POJO基类
  */
 @SuppressWarnings("serial")
 public class BaseModel implements Serializable
@@ -59,8 +59,8 @@ public class BaseModel implements Serializable
 	@Override
 	public String toString()
 	{
-		return "BaseModel [id=" + id + ", createTime=" + createTime + ", createBy=" + createBy + ", updateTime="
-				+ updateTime + ", updateBy=" + updateBy + "]";
+		return "id=" + id + ", createTime=" + createTime + ", createBy=" + createBy + ", updateTime="
+				+ updateTime + ", updateBy=" + updateBy + "";
 	}
 	
 	

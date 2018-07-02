@@ -12,4 +12,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES (#{id}, #{name}, #{type}, #{leaf}, #{parent_id}, #{path});
 	</insert>
 	
+	<!-- insert,delete,update标签没有resultType标签 -->
+	<!-- 新增地址 -->
+	<insert id="addAddressBackId" parameterType="Map" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO address (`id`, `name`, `type`, `leaf`, `parent_id`, `path`) 
+		VALUES (#{id}, #{name}, #{type}, #{leaf}, #{parent_id}, #{path});
+	</insert>
+	
+	
 </mapper>

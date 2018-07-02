@@ -1,9 +1,9 @@
 package com.bgb.logger.model.pojo;
 
-
 /**
- * @author Bill
- *
+ * 作者Email:fengminbiao@126.com
+ * 创建时间：2018年7月2日下午2:47:45
+ * 类说明：用户表
  */
 @SuppressWarnings("serial")
 public class User extends BaseModel
@@ -18,7 +18,7 @@ public class User extends BaseModel
     private String picture;			//头像
     private String validityStartDate;	//有效期开始日期
     private String validityEndDate;		//有效期结束日期
-    private String companyOrgId;	//公司区域Id
+    private String companyId;	//公司Id
     private String postId;			//职位Id
     private String tel;				//电话号码
     private String email;			//邮箱
@@ -27,7 +27,7 @@ public class User extends BaseModel
     private String roleId;
     private String userGroupId;
     
-    private CompanyOrganization companyOrganization;
+    private Company company;
     
 	
 	public String getUsername() {
@@ -129,14 +129,15 @@ public class User extends BaseModel
 		this.validityEndDate = validityEndDate;
 	}
 
-
-	public String getCompanyOrgId() {
-		return companyOrgId;
+	public String getCompanyId()
+	{
+		return companyId;
 	}
 
 
-	public void setCompanyOrgId(String companyOrgId) {
-		this.companyOrgId = companyOrgId;
+	public void setCompanyId(String companyId)
+	{
+		this.companyId = companyId;
 	}
 
 
@@ -209,27 +210,28 @@ public class User extends BaseModel
 		this.userGroupId = userGroupId;
 	}
 
-
-	public CompanyOrganization getCompanyOrganization() {
-		return companyOrganization;
+	public Company getCompany()
+	{
+		return company;
 	}
 
 
-	public void setCompanyOrganization(CompanyOrganization companyOrganization) {
-		this.companyOrganization = companyOrganization;
+	public void setCompany(Company company)
+	{
+		this.company = company;
 	}
 
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "User [username=" + username + ", password=" + password + ", fullname=" + fullname + ", idNumber="
 				+ idNumber + ", dateOfBirth=" + dateOfBirth + ", isLock=" + isLock + ", workingStatus=" + workingStatus
 				+ ", picture=" + picture + ", validityStartDate=" + validityStartDate + ", validityEndDate="
-				+ validityEndDate + ", companyOrgId=" + companyOrgId + ", postId=" + postId + ", tel=" + tel
+				+ validityEndDate + ", companyId=" + companyId + ", postId=" + postId + ", tel=" + tel
 				+ ", email=" + email + ", qq=" + qq + ", wechat=" + wechat + ", roleId=" + roleId + ", userGroupId="
-				+ userGroupId + ", toString()=" + super.toString() + "]";
+				+ userGroupId + ", company=" + company + ", " + super.toString()
+				+ "]";
 	}
-    
-    
 	
 }
