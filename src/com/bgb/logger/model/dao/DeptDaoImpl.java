@@ -28,7 +28,7 @@ public class DeptDaoImpl
 		//Sqlsession-->SqlSessionFactory-->SqlSessionFactoryBuilder
 		SqlSessionFactoryBuilder sfb = new SqlSessionFactoryBuilder();
 		//将mybatis.xml文件转化成流
-		InputStream ins = Resources.getResourceAsStream("configuration/mybatis.xml");
+		InputStream ins = Resources.getResourceAsStream("conf/mybatis.xml");
 		SqlSessionFactory ssf = sfb.build(ins);
 		sqlSession = ssf.openSession();
 	}

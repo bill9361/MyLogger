@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings> -->
 	
 	<!-- 配置数据库属性文件 -->
-	<properties resource="configuration/db.properties"/>
+	<properties resource="conf/db.properties"/>
 
 	<!-- 配置数据库连接环境：driver,url,username,password -->
 	<environments default="mysql">
