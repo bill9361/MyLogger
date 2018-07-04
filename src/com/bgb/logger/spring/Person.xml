@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	
+	
+	<bean id="cat2" class="com.bgb.logger.spring.Cat">
+		<property name="name" value="Mark"></property>
+		<property name="age" value="20"></property>
+		<property name="weight" value="5.0"></property>
+	</bean>
+	
+	<bean id="person" class="com.bgb.logger.spring.Person">
+		<property name="name" value="张三"></property>
+		<property name="cat" ref="cat2"></property>
+	</bean>       
+
+   
+</beans>
