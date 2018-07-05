@@ -10,6 +10,7 @@ public class Person
 	private String name;
 	private Cat cat;
 	private List<String> listStr;
+	private List<Object> listObj;
 	private Set<String> set;
 	private Map<String, Object> map;
 	private Properties props;
@@ -78,12 +79,24 @@ public class Person
 	{
 		this.props = props;
 	}
+	
+
+	public List<Object> getListObj()
+	{
+		return listObj;
+	}
+
+	public void setListObj(List<Object> listObj)
+	{
+		this.listObj = listObj;
+	}
 
 	@Override
 	public String toString()
 	{
-		return "Person [name=" + name + ", cat=" + cat + ", listStr=" + listStr + ", set=" + set + ", map=" + map
-				+ ", props=" + props + "]";
+		return "Person [name=" + name + ", cat=" + cat + ", listStr=" + listStr + ", listObj=" + listObj + ", set="
+				+ set + ", map=" + map + ", props=" + props + "]";
 	}
+
 	
 }

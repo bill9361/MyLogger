@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 	
 	
 	<bean id="cat2" class="com.bgb.logger.spring.Cat">
@@ -14,7 +18,42 @@
 	<bean id="person" class="com.bgb.logger.spring.Person">
 		<property name="name" value="张三"></property>
 		<property name="cat" ref="cat2"></property>
+		<property name="listStr">
+			<list>
+				<value>list1</value>
+				<value>猫咪AA</value>
+				<value>1234</value>
+			</list>
+		</property>
+		
+		<property name="listObj">
+			<list>
+				<value>listObj1</value>
+				<value>1234</value>
+				<ref bean="cat2"/>
+			</list>
+		</property>
+		
+		<property name="set">
+			<set>
+				<value>set11</value>
+				<value>aa</value>
+			</set>
+		</property>
+		
+		<property name="map">
+			<map>
+				<entry key="key1" value="value1"></entry>
+				<entry key="key2" value-ref="cat2"></entry>
+			</map>
+		</property>
+		
+		<property name="props">
+			<props>
+				<prop key="propKey1">propValue1</prop>
+				<prop key="aaa">456:789a</prop>
+			</props>
+		</property>
 	</bean>       
 
-   
 </beans>
