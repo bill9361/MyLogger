@@ -16,6 +16,7 @@ public class BankServiceImpl
 	
 	public int getMoney()
 	{
+		int i = 10/0;
 		System.out.println("BankServiceImpl....getMoney()....余额500万");
 		
 		return 500;

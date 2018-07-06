@@ -3,7 +3,7 @@ package com.bgb.logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.bgb.logger.spring.aop.BankServiceImpl;
+import com.bgb.logger.spring.mvc.controller.FrontControllerImpl;
 
 /**
  * 作者Email:fengminbiao@126.com
@@ -26,10 +26,13 @@ public class Main
 		/*Cat catA = (Cat) appContext.getBean("cat2");
 		System.out.println(catA);*/
 		
-		BankServiceImpl bankServiceImpl = (BankServiceImpl) appContext.getBean("bankServiceImpl");
+		//BankServiceImpl bankServiceImpl = (BankServiceImpl) appContext.getBean("bankServiceImpl");
 		//bankServiceImpl.zhuanMoney();
 		//bankServiceImpl.getMoney();
-		bankServiceImpl.invest();
+		//bankServiceImpl.invest();
+		
+		FrontControllerImpl frontControllerImpl = (FrontControllerImpl) appContext.getBean("frontControllerImpl");
+		frontControllerImpl.addFront();
 	}
 
 	
